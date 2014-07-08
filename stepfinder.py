@@ -14,6 +14,7 @@ currenttime = value.strftime('%Y%m%d_%H%M%S')
 
 report = open('/Users/chlorite/Desktop/Dropbox/Code/Test data/Analysed data/' + currenttime + '_report', "w")
 report.write(currenttime + '\n')
+report.write("Location of raw data files:" + path)
 
 threshold = int(raw_input("Threshold: "))
 report.write('Threshold = ' + str(threshold) + '\n')
