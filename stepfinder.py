@@ -112,7 +112,7 @@ for file in dirs:
 
 	savefilename1 = '/Users/chlorite/Desktop/Dropbox/Code/Test data/Analysed data/' + datafilename + 'ttest.png'
 	plt.savefig(savefilename1)
-	plt.clf("t test")
+	plt.clf()
 
 	stepstarts=[]
 	#the time values form (time) at which step is first detected (first t value above threshold)
@@ -266,11 +266,10 @@ for file in dirs:
 	a1=time[0]
 	a2=time[-1]
 	plt.xlim(xmin=a1, xmax=a2)
-	plt.clf("Step trace")
 
 	savefilename2 = '/Users/chlorite/Desktop/Dropbox/Code/Test data/Analysed data/' + datafilename + 'trace.png'
 	plt.savefig(savefilename2)
-
+	plt.clf()
 
 report.close()
 	
