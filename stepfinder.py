@@ -78,11 +78,12 @@ for file in dirs:
 
 	#Create a list of all the time values and position values that have a corresponding t value (timeswtvalue) 
 	#and a list of all the t values (tvalue). Empty the t test sample arrays (pos1 and pos2)
+	for i in range(a-w, a):
+		pos1.append(float(pos[i]))
+	for j in range(a+1, a+w+1):
+		pos2.append(float(pos[j]))
+
 	for k in range(0, len(pos)-(2*w+2)):
-		for i in range(a-w, a):
-			pos1.append(float(pos[i]))
-		for j in range(a+1, a+w+1):
-			pos2.append(float(pos[j]))
 		t, prob = scipy.stats.ttest_ind(pos1, pos2, equal_var=True)
 		if t>0 and t>threshold:
 			times.append(time[a])
@@ -94,8 +95,10 @@ for file in dirs:
 		timeswtvalue.append(time[a])
 		tvalue.append(float(t))
 		position.append(float(pos[a]))
-		del pos1[:]
-		del pos2[:]
+		del pos1[0]
+		del pos2[0]
+		pos1.append(pos[a])
+		pos2.append(pos[a+w+1])
 		a=a+1
 	a=w=width
 
