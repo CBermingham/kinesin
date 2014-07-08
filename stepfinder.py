@@ -52,6 +52,8 @@ for file in dirs:
 	    	pos.append(float(row[1]))
 	    	filtered.append(float(row[2]))
 
+	time[:] = [x - time[0] for x in time]	    	
+
 	#set the width of the samples of data to compare in the t test in number of samples
 	
 	pos1=[]
@@ -97,7 +99,7 @@ for file in dirs:
 		a=a+1
 	a=w=width
 
-	time[:] = [x - time[0] for x in time]
+	
 
 	#plot the t value at each time
 	f1=plt.figure("t test")
