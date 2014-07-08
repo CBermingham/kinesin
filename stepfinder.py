@@ -69,7 +69,6 @@ for file in dirs:
 
 	#set the t test threshold (could be calculated by finding the number of degrees of
 	#freedom which is number of samples*2 - 2 then looking up in a table)
-	
 	#Go through all samples creating a list of w samples before (pos1) and w samples 
 	#after (pos2) then comparing the sample lists using the t test. Determine if the t value is above
 	#the threshold and if so assign the time value to either a list of forward steps (fsteps)
