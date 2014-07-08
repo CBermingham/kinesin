@@ -1,6 +1,5 @@
 kinesin
 =======
-
 Detects steps in kinesin stepping data.
 
 Asks for folder in which data is stored. This contains csv files called 'timestamp'.csv with data in form column[0]=time, col[1] = position, col[2]=filtered position. Folder also contains noise file for each data file called 'timestamp'noise.txt with data from unbound state near run in form col[9]=position. Give path for these folders, no final backslash, when asked.
