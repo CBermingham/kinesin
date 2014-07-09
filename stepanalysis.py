@@ -4,28 +4,31 @@ import pylab
 import matplotlib.pyplot as plt
 import numpy as np
 import math
+import os, sys
 
 
-stepdatafilelocation = raw_input("Location of step data file to process: ")
-stepdatafilename = raw_input("Name of step data file to process: ")
-stepdatafile = stepdatafilelocation + stepdatafilename
-print stepdatafile
+path = raw_input("Location of stepdata.csv files to analyse: ")
+dirs = os.listdir(path)
 
 amplitude = []
 load = []
 dwell=[]
 steptype=[]
+rows=[]
 
-with open(stepdatafile, 'rU') as data:
-    reader = csv.reader(data)
-    next(reader, None)
-    for row in reader:
-    	load.append(float(row[4]))
-    	amplitude.append(float(row[3]))
-       	steptype.append(row[5])
-       	dwell.append(row[1])
+for filename in dirs:
+	f = open(path + '/' + filename, 'rU')
+	reader = csv.reader(f, None) 
+	next(reader, None)
+	for row in reader:
+ 		load.append(float(row[4]))
+ 		amplitude.append(float(row[3]))
+ 		steptype.append(row[5])
+ 		dwell.append(row[1])
+ 	del dwell[-1]
+ 	f.close()
 
-del dwell[-1]
+
 for i in dwell:
 	i=float(i)
 
@@ -218,7 +221,7 @@ plt.axhline(y=0, xmin=0, xmax=1, linewidth=1, color='k')
 plt.ylim(ymin=-12, ymax=12)
 plt.yticks([-12,-8,-4,0,4,8,12])
 
-savefilename = stepdatafile + '_amplitude.png'
+savefilename = path + '_amplitude.png'
 plt.savefig(savefilename)
 
 fig2 = plt.figure()
@@ -232,7 +235,7 @@ plt.yscale('log')
 plt.ylim(ymin=0.001)
 plt.xlim(xmin=0)
 
-savefilename = stepdatafile + '_dwell.png'
+savefilename = path + '_dwell.png'
 plt.savefig(savefilename)
 
 fig3 = plt.figure()
@@ -244,7 +247,7 @@ plt.axhline(y=1, xmin=0, xmax=1, linewidth=1, color='k')
 plt.yscale('log')
 plt.xlim(xmin=0)
 
-savefilename = stepdatafile + '_ratio.png'
+savefilename = path + '_ratio.png'
 plt.savefig(savefilename)
 
 fig4 = plt.figure()
@@ -253,7 +256,7 @@ plt.xlabel("Step amplitude / nm", fontsize=18)
 plt.ylabel("Frequency", fontsize=18)
 plt.xlim(xmin=0, xmax=16)
 
-savefilename = stepdatafile + '_amp_histogram.png'
+savefilename = path + '_amp_histogram.png'
 plt.savefig(savefilename)
 
 fig5 = plt.figure()
@@ -262,7 +265,7 @@ plt.xlabel("Load / pN", fontsize=18)
 plt.ylabel("Velocity / nm / s", fontsize=18)
 plt.xlim(xmin=0)
 
-savefilename = stepdatafile + '_velocity.png'
+savefilename = path + '_velocity.png'
 plt.savefig(savefilename)
 
 plt.show()

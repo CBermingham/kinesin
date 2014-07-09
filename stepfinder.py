@@ -12,7 +12,7 @@ timestamp = time.time()
 value = datetime.datetime.fromtimestamp(timestamp)
 currenttime = value.strftime('%Y%m%d_%H%M%S')
 
-report = open('/Users/chlorite/Desktop/Dropbox/Code/Test data/Analysed data/' + currenttime + '_report', "w")
+report = open('/Users/chlorite/Desktop/Dropbox/Code/Test_data/Analysed data/' + currenttime + '_report', "w")
 report.write(currenttime + '\n')
 report.write("Location of raw data files:" + path)
 
@@ -30,35 +30,33 @@ for file in dirs:
 		report.write(datafilename + '\n')
 		noisefile = datafile.replace(".csv", "noise.txt")
 
-	posbase=[]
+ 	posbase=[]
 
-	f = open(noisefile, 'r')
-	lines=f.readlines()
-	f.close()
+ 	f = open(noisefile, 'rU')
+ 	lines=f.readlines()
+ 	f.close()
 
-	for l in lines:
-		b = l.split()
-		posbase.append(float(b[9]))
+ 	for l in lines:
+ 		b = l.split()
+ 		posbase.append(float(b[9]))
 
-	baseline=float(sum(posbase)/len(posbase))
+ 	baseline=float(sum(posbase)/len(posbase))
 
-	pos=[]
-	time=[]
-	filtered=[]
+ 	pos=[]
+ 	time=[]
+ 	filtered=[]
 
-	with open(datafile, 'rU') as data:
-	    reader = csv.reader(data)
-	    for row in reader:
-	    	time.append(float(row[0]))
-	    	pos.append(float(row[1]))
-	    	filtered.append(float(row[2]))
+ 	with open(datafile, 'rU') as data:
+ 	    reader = csv.reader(data)
+ 	    for row in reader:
+ 	    	time.append(float(row[0]))
+ 	    	pos.append(float(row[1]))
+ 	    	filtered.append(float(row[2]))
 
-	time[:] = [x - time[0] for x in time]	    	
+ 	time[:] = [x - time[0] for x in time]	    	
 
-	#set the width of the samples of data to compare in the t test in number of samples
-	
-	pos1=[]
-	pos2=[]
+ 	pos1=[]
+ 	pos2=[]
 	steps=[]
 	timeswtvalue=[]
 	tvalue=[]
