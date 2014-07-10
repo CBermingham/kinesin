@@ -5,14 +5,17 @@ import numpy as np
 import csv
 import os, sys, datetime, time
 
-path = raw_input("Location of files: ")
+
+path = raw_input("Location of raw data files: ")
 dirs = os.listdir(path)
 
 timestamp = time.time() 
 value = datetime.datetime.fromtimestamp(timestamp)
 currenttime = value.strftime('%Y%m%d_%H%M%S')
 
-report = open('/Users/chlorite/Desktop/Dropbox/Code/Test_data/Analysed data/' + currenttime + '_report', "w")
+analysedpath = raw_input("Location where analysed data is to be saved: ") + '/'
+
+report = open(analysedpath + currenttime + '_report', "w")
 report.write(currenttime + '\n')
 report.write("Location of raw data files:" + path)
 
@@ -24,11 +27,12 @@ a=w=width
 report.write('width of data samples = ' + str(width) + '\n')
 
 for file in dirs:
-	if '.csv' in file:
-		datafile = path + '/' + file
-		datafilename = file.strip(".csv")
-		report.write(datafilename + '\n')
-		noisefile = datafile.replace(".csv", "noise.txt")
+	if not file.startswith('.'):
+		if '.csv' in file:
+			datafile = path + '/' + file
+			datafilename = file.strip(".csv")
+			report.write(datafilename + '\n')
+			noisefile = datafile.replace(".csv", "noise.txt")
 
  	posbase=[]
 
@@ -113,7 +117,7 @@ for file in dirs:
 	a2=time[-1]
 	plt.xlim(xmin=a1, xmax=a2)
 
-	savefilename1 = '/Users/chlorite/Desktop/Dropbox/Code/Test data/Analysed data/' + datafilename + 'ttest.png'
+	savefilename1 = analysedpath + datafilename + 'ttest.png'
 	plt.savefig(savefilename1)
 	plt.clf()
 
@@ -238,7 +242,7 @@ for file in dirs:
 	rows2 = zip(time, filtered)
 
 
-	stepdatafile = '/Users/chlorite/Desktop/Dropbox/Code/Test data/Analysed data/' + datafilename + 'stepdata.csv'
+	stepdatafile = analysedpath + datafilename + 'stepdata.csv'
 
 	import csv
 	writer = csv.writer(open(stepdatafile, "wb"))
@@ -246,7 +250,7 @@ for file in dirs:
 	for row in rows:
 	    writer.writerow(row)
 	
-	tracedatafile = '/Users/chlorite/Desktop/Dropbox/Code/Test data/Analysed data/' + datafilename + 'trace.csv'
+	tracedatafile = analysedpath + datafilename + 'trace.csv'
 
 	import csv
 	writer = csv.writer(open(tracedatafile, "wb"))
@@ -270,7 +274,7 @@ for file in dirs:
 	a2=time[-1]
 	plt.xlim(xmin=a1, xmax=a2)
 
-	savefilename2 = '/Users/chlorite/Desktop/Dropbox/Code/Test data/Analysed data/' + datafilename + 'trace.png'
+	savefilename2 = analysedpath + datafilename + 'trace.png'
 	plt.savefig(savefilename2)
 	plt.clf()
 
