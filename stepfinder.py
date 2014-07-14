@@ -239,7 +239,7 @@ for file in dirs:
 		force.append(f)
 
 	rows = zip(steppos, length, avepos, distance, force, direction)
-	rows2 = zip(time, filtered)
+	rows2 = zip(time, filtered, timeswtvalue, tvalue)
 
 
 	stepdatafile = analysedpath + datafilename + 'stepdata.csv'

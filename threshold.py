@@ -10,7 +10,7 @@ s1 = [a0 for x in t]
 s2 = [-a0 for x in t]
 t_data = [x * 2 for x in t]
 l, = plot(t,s1, lw=2, color='red')
-m, = plot(t,s2, lw=2, color='green')
+m, = plot(t,s2, lw=2, color='red')
 k, = plot(t, t_data, lw=2, color='blue')
 axis([-10, 10, -20, 20])
 
@@ -49,8 +49,6 @@ def update(val):
 			n.set_ydata(newvals_y)
 			n.set_xdata(newvals_x)
 			draw()
-print newvals_x
-print newvals_y
 samp.on_changed(update)
 
 #position and size of reset button
