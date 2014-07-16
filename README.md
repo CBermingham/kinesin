@@ -25,9 +25,9 @@ Runs through all files in folder.
 
 1. Outputs
 
-A csv file containing columns with headings containing time, t values, filtered position data and raw position data for each point. Saved in folder for analysed data as <timestamp>_tvalues.csv. Does this for each data file.
+A csv file containing columns with headings containing time, t values, filtered position data and raw position data for each point. Saved in folder for analysed data as 'timestamp'_tvalues.csv. Does this for each data file.
 
-A text file containint a timestamp from when the program first started running, the location of the files analysed and the names of the files analysed. Saved as <current_date_time>_report.txt in the analysed data folder.
+A text file containint a timestamp from when the program first started running, the location of the files analysed and the names of the files analysed. Saved as 'current'date_time'_report.txt in the analysed data folder.
 
 ------------------------------------------------------------------------------------------
 
@@ -45,10 +45,10 @@ Can then see if threshold is ok. Close graph and type n to try another threshold
 
 2. Outputs
 
-A csv file containing data that was plotted last, the time, t values, filtered position and unfiltered position. This is so that it can be plotted again if necessary. Saved as <timestamp>_T<threshold>_plotdata.csv in the analysed data folder.
+A csv file containing data that was plotted last, the time, t values, filtered position and unfiltered position. This is so that it can be plotted again if necessary. Saved as 'timestamp'_T'threshold'_plotdata.csv in the analysed data folder.
 
-A csv file containing the step data. This is the Time in s, Length in s, Average position in m, Length in nm, Average force in pN and f/b/d for forward/back/detachment. Saved as <timestamp>_T<threshold>_stepdata.csv in the analysed data folder.
+A csv file containing the step data. This is the Time in s, Length in s, Average position in m, Length in nm, Average force in pN and f/b/d for forward/back/detachment. Saved as 'timestamp'_T'threshold'_stepdata.csv in the analysed data folder.
 
-A png image of the graph displayed to set the threshold. Shows the filtered data and the overlayed steps. Saved as <timestamp>_T<threshold>.csv in the analysed data folder.
+A png image of the graph displayed to set the threshold. Shows the filtered data and the overlayed steps. Saved as 'timestamp'_T'threshold'.csv in the analysed data folder.
 
 
