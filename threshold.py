@@ -14,7 +14,7 @@ m, = plot(t,s2, lw=2, color='red')
 k, = plot(t, t_data, lw=2, color='blue')
 axis([-10, 10, -20, 20])
 
-#Make other data set
+
 vals_x=[]
 vals_y=[]
 ax = subplot(212)

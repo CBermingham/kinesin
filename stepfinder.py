@@ -13,7 +13,7 @@ timestamp = time.time()
 value = datetime.datetime.fromtimestamp(timestamp)
 currenttime = value.strftime('%Y%m%d_%H%M%S')
 
-analysedpath = raw_input("Location where analysed data is to be saved: ") + '/'
+analysedpath = "/Users/chlorite/Desktop/Dropbox/Code/Test_data/Analysed_data/"
 
 report = open(analysedpath + currenttime + '_report', "w")
 report.write(currenttime + '\n')
