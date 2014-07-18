@@ -80,12 +80,12 @@ for file in dirs:
 		a=a+1
 	a=w=width
 
-	del pos[:1000]
-	del pos[-1001:]
-	del filtered[:1000]
-	del filtered[-1001:]
-	del time[:1000]
-	del time[-1001:]
+	del pos[:w]
+	del pos[-w:]
+	del filtered[:w]
+	del filtered[-w:]
+	del time[:w]
+	del time[-w:]
 
 	t_valuedatafile = analysedpath + datafilename + 't_values.csv'
 
