@@ -7,7 +7,7 @@ import os, sys, datetime, time
 
 datafile = raw_input("t-values datafile: ")
 
-analysedpath = "/Users/chlorite/Desktop/Dropbox/Code/Test_data/Analysed_data/"
+analysedpath = "/Users/chlorite/Desktop/Dropbox/Data/140806/"
 
 cont = 'n'
 
