@@ -5,9 +5,13 @@ import numpy as np
 import csv
 import os, sys, datetime, time
 
+datafolder = raw_input("Data folder: ")
+
 datafile = raw_input("t-values datafile: ")
 
-analysedpath = "/Users/chlorite/Desktop/Dropbox/Data/140806/"
+t_file = datafolder + "/" + datafile
+
+analysedpath = "/Users/chlorite/Desktop/Dropbox/Data/140806/Graphs/"
 
 cont = 'n'
 
@@ -21,7 +25,7 @@ while cont == 'n':
 	filtered = []
 	pos = []
 
-	with open(datafile, 'rU') as data:
+	with open(t_file, 'rU') as data:
 	 	    reader = csv.reader(data)
 	 	    next(reader, None)
 	 	    for row in reader:

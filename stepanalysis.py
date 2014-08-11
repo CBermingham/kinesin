@@ -17,16 +17,17 @@ steptype=[]
 rows=[]
 
 for filename in dirs:
-	f = open(path + '/' + filename, 'rU')
-	reader = csv.reader(f, None) 
-	next(reader, None)
-	for row in reader:
- 		load.append(float(row[4]))
- 		amplitude.append(float(row[3]))
- 		steptype.append(row[5])
- 		dwell.append(row[1])
- 	del dwell[-1]
- 	f.close()
+	if 'stepdata' in filename:
+		f = open(path + '/' + filename, 'rU')
+		reader = csv.reader(f, None) 
+		next(reader, None)
+		for row in reader:
+			load.append(float(row[4]))
+			amplitude.append(float(row[3]))
+			steptype.append(row[5])
+			dwell.append(row[1])
+		del dwell[-1]
+		f.close()
 
 
 for i in dwell:
